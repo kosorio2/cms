@@ -1,8 +1,13 @@
-<cms-header></cms-header>
+<cms-header (selectedFeatureAction)="changeView($event)"></cms-header>
+<!-- This is event binding -->
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <cms-contacts></cms-contacts>
+      <cms-contacts *ngIf="selectedFeature === 'contacts'"></cms-contacts><!-- This is creating an if event  -->
+      <cms-message-list *ngIf="selectedFeature === 'messages'"></cms-message-list>
+      <cms-documents *ngIf="selectedFeature === 'documents'"></cms-documents>
     </div>
   </div>
 </div>
+
+
