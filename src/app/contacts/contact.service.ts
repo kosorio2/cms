@@ -21,7 +21,7 @@ export class ContactService {
     .slice(); //this creates a copy
   }
 
-  // getContact(id: string): Contact {
-  //   return this.contacts.find((contact) => contact.id === id);
-  // }
+  getContact(id: string): Contact {
+    return this.contacts.find((contact) => contact.id === id);
+  }
 }
