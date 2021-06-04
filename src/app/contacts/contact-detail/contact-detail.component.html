@@ -6,8 +6,8 @@
       *ngIf="contact?.imageUrl">
 
     <div class="pull-right">
-      <button class="btn btn-primary" type="button">Edit</button>
-      <button class="btn btn-danger" type="button">Delete</button>
+      <button class="btn btn-primary" type="button" [routerLink]="['edit']">Edit</button>
+      <button class="btn btn-danger" type="button" (click)="onDelete()">Delete</button>
     </div>
     </div>
     <div class="panel-body">

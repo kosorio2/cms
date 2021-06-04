@@ -1,5 +1,3 @@
-import { viewClassName } from '@angular/compiler';
-import { createDirectiveDefinitionMap } from '@angular/compiler/src/render3/partial/directive';
 import { Component } from '@angular/core';
 
 @Component({
@@ -9,11 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'cms';
-  selectedFeature = 'documents';
+  // selectedFeature = 'documents';
 
-  changeView(selectedFeature: string) {
-    this.selectedFeature = selectedFeature;
-  }
+  // changeView(selectedFeature: string) {
+  //   this.selectedFeature = selectedFeature;
 
   // changeView is the method that we created, it will take the string 'documents, messages or contacts' and it will change the view
 }

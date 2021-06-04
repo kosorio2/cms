@@ -11,9 +11,9 @@
 
     <div class="navbar-default">
       <ul class="nav navbar-nav">
-        <li><a href="#" (click)="onSelectedAction('documents')">Documents</a></li><!-- The onSelectedAction is a method that we created. It will talk to the header component -->
-        <li><a href="#" (click)="onSelectedAction('messages')">Messages</a></li>
-        <li><a href="#" (click)="onSelectedAction('contacts')">Contacts</a></li>
+        <li routerLinkActive="active"><a  routerLink="/documents">Documents</a></li><!-- The onSelectedAction is a method that we created. It will talk to the header component -->
+        <li routerLinkActive="active"><a  routerLink="/messages">Messages</a></li>
+        <li routerLinkActive="active"><a  routerLink="/contacts">Contacts</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li class="dropdown" appDropDown>

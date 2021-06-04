@@ -1,12 +1,11 @@
-import { templateJitUrl } from '@angular/compiler';
-import { Component, Output, EventEmitter} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component ({
   selector: 'cms-header',
   templateUrl: './header.component.html'
 })
 export class HeaderComponent {
-  @Output() selectedFeatureAction = new EventEmitter<string>(); //This is passing the information back up to the html page
+  // @Output() selectedFeatureAction = new EventEmitter<string>(); //This is passing the information back up to the html page
   collapsed = true;
 
   constructor() { }
@@ -14,8 +13,8 @@ export class HeaderComponent {
   ngOnInit(): void {
   }
 
-  onSelectedAction(selectedAction: string) {
-    this.selectedFeatureAction.emit(selectedAction);
-  }
+  // onSelectedAction(selectedAction: string) {
+  //   this.selectedFeatureAction.emit(selectedAction);
+  // }
 
 }
