@@ -1,4 +1,5 @@
 import { Component, OnInit} from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Contact } from '../contact.model';
 import { ContactService } from '../contact.service';
 
@@ -10,15 +11,20 @@ import { ContactService } from '../contact.service';
 })
 export class ContactListComponent implements OnInit {
   contacts: Contact[] = [];
+  private subscription: Subscription
 
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    this.contactService.contactChangedEvent.subscribe((contacts) => {
+    this.subscription = this.contactService.contactChangedEvent.subscribe((contacts) => {
       this.contacts = contacts;
     });
 
-    this.contacts = this.contactService.getContacts(); //This is loading the contacts 
+    this.contacts = this.contactService.getContacts(); //This is loading the contacts
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe;
   }
 
 
