@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
+import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 
 import { Contact } from './contact.model'
 
@@ -31,7 +32,24 @@ export class ContactService {
     return this.contacts.find((contact) => contact.id === id);
   }
 
-  deleteContact(contact: Contact) { }
+  deleteContact(contact: Contact) {
+    if (!contact) {
+      return;
+    }
+
+    const position = this.contacts.indexOf(contact);
+
+    if (position < 0) {
+      return;
+    }
+
+    this.contacts.splice(position, 1);
+
+    const contactsListClone = this.contacts.slice();
+
+    this.contactChangedEvent.next(contactsListClone);
+
+  }
 
   getMaxId(): number {
     let maxId = 0;

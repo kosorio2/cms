@@ -33,11 +33,14 @@ export class DocumentService {
       return;
     }
     const pos = this.documents.indexOf(document);
+
     if (pos < 0) {
       return;
     }
+
     this.documents.splice(pos, 1);
-    this.documentChangedEvent.next(this.documents.slice());
+    const documentsListClone = this.documents.slice();
+    this.documentChangedEvent.next(documentsListClone);
 }
 
 getMaxId(): number {
