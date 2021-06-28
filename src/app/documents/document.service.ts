@@ -58,7 +58,7 @@ getMaxId(): number {
 }
 
 addDocument(newDocument: Document) {
-  if (newDocument === undefined || newDocument === null) {
+  if (!newDocument) { //This looks for it not being undefined or null
       return;
   }
 
