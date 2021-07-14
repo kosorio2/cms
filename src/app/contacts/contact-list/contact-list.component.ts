@@ -10,18 +10,29 @@ import { ContactService } from '../contact.service';
   styleUrls: ['./contact-list.component.css']
 })
 export class ContactListComponent implements OnInit {
+  term: string;
   contacts: Contact[] = [];
   private subscription: Subscription
 
   constructor(private contactService: ContactService) { }
 
   ngOnInit() {
-    this.subscription = this.contactService.contactChangedEvent.subscribe((contacts) => {
+    this.subscription = this.contactService.contactListChangedEvent.subscribe((contacts) => {
       this.contacts = contacts;
     });
 
-    this.contacts = this.contactService.getContacts(); //This is loading the contacts
+    this.contactService.getContacts(); //This is loading the contacts
   }
+
+  search(value: string) {
+
+    this.term = value;
+
+    }
+
+    onKeyUp(value: string) {
+      this.term = value;
+    }
 
   ngOnDestroy() {
     this.subscription.unsubscribe;
